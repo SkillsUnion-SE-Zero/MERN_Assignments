@@ -24,6 +24,10 @@ class Ninja{
         console.log("Name: " + this.name + ", Health: " + this.health + ", Speed: " + this.speed + ", Strength: " + this.strength);
         return this;
     }
+    showNameClass() {
+        console.log("Name of CLASS: " + this.constructor.name);
+        return this;
+    }
 
     drinkSake () {
         this.health += 10;
@@ -34,13 +38,11 @@ class Ninja{
 const alexNinja = new Ninja("Alex");
 alexNinja.sayName();
 alexNinja.showStats();
+alexNinja.showNameClass();
 
 
 
 console.log("------Sensei-------");
-
-
-
 
 class Sensei extends Ninja {
     constructor(name) {
@@ -53,19 +55,24 @@ class Sensei extends Ninja {
     speakWisdom(){
         const drink = super.drinkSake();
         drink;
-        console.log("What one programmer can do in one month, two programmers can do in two months.")
+        console.log("Wisdom: " + this.wisdom + ", 'What one programmer can do in one month, two programmers can do in two months.'")
         return this
     }
 
-    showStats() {
+    showStatsW() {
         const stats = super.showStats();
-        // console.log(stats);
+        stats;
+        console.log("Wisdom: " + this.wisdom);
+        return this;
     }
+
+  
 }
 
 // example output
 const superSensei = new Sensei("Master Splinter");
 superSensei.speakWisdom();
 // -> "What one programmer can do in one month, two programmers can do in two months."
-superSensei.showStats();
+superSensei.showStatsW();
 // -> "Name: Master Splinter, Health: 210, Speed: 10, Strength: 10"
+superSensei.showNameClass();
